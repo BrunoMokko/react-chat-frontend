@@ -1,0 +1,10 @@
+.button {
+  background: #12E2DC;
+  &:hover{
+    background: #029f9f !important;
+  }
+  &--large {
+    height: 56px !important;
+  }
+}
+

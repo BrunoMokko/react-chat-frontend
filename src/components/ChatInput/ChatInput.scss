@@ -1,0 +1,105 @@
+.chat-input{
+  margin: 20px;
+  position: relative;
+  &__emoji-picker{
+    position: absolute;
+    bottom: 20px;
+    left: 25px;
+  }
+  &__smile-btn,
+  &__actions{
+    position: absolute;
+    color: #747474;
+    z-index: 1;
+    top: 3px;
+    right: 0px;
+  }
+
+  &__smile-btn{
+    top: 3px;
+    left: 2px;
+    width: 30px;
+    button{
+      color: #969696;
+      &:hover,
+      &:active{
+        color: #12E2DC !important;
+      }
+      &:focus-visible{
+        outline: none !important;
+      }
+    }
+    svg{
+      transition: color 0.2s ease-in;
+    }
+    svg:hover{
+      color: #12E2DC;
+    }
+  }
+
+  &__actions{
+    &-upload-btn{
+      overflow: visible !important;
+      position: relative;
+      cursor: pointer;
+      input{
+        cursor: pointer;
+        top: 9px !important;
+        right: 43px !important;
+        opacity: 0 !important;
+        width: 40% !important;
+        height: 15px !important;
+        cursor: pointer;
+        position: absolute !important;
+        padding: 0 !important;
+      }
+      &:hover{
+        button{
+          color: #12E2DC !important;
+        }
+      }
+    }
+    button:nth-child(1){
+      cursor: pointer;
+      position: absolute;
+      right: 35px;
+      top: 1px;
+      color: #969696;
+      svg{
+        transition: color 0.2s ease-in;
+      }
+      &:hover{
+            color: #12E2DC !important;
+          }
+          svg:hover{
+            color: #12E2DC;
+          }
+     }
+    button:last-child{
+      cursor: pointer;
+      color: #969696;
+      &:hover{
+        color: #12E2DC !important;
+      }
+      svg{
+        transition: color 0.2s ease-in;
+      }
+      svg:hover{
+        color: #12E2DC;
+      }
+    }
+    button:last-child{
+      margin-right: 10px;
+    }
+  }
+
+  input{
+    padding: 4px 70px 4px 35px;
+    &:focus,
+    &:hover{
+      box-shadow: none;
+      border: 1px solid #12E2DC;
+    }
+  }
+}
+

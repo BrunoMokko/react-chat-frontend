@@ -1,0 +1,34 @@
+.avatar {
+  border-radius: 30px;
+  width: 100%;
+  height: 100%;
+  &--symbol {
+    text-align: center;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 36px;
+    color: #f7f7ff;
+  }
+}
+
+@media only screen and (max-width: 860px){
+
+    .avatar {
+      &--symbol {
+        font-size: 32px;
+        line-height: 62px;
+      }
+    }
+}
+
+@media only screen and (max-width: 573px){
+
+  .avatar {
+    width: 90%;
+    height: 60%;
+    &--symbol {
+      font-size: 28px;
+      line-height: 38px;
+    }
+  }
+}

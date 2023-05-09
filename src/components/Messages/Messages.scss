@@ -1,0 +1,39 @@
+.messages{
+  height: 100%;
+  padding: 30px 15px 0 15px;
+  overflow: auto;
+  position: relative;
+  &--loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .ant-spin-dot-spin {
+      i {
+        opacity: 0.5;
+        width: 40px;
+        height: 41px;
+      }
+      i:first-child{
+        background: rgba(255, 255, 255, 0.35);
+      }
+      i:nth-child(2){
+        background: rgba(255, 255, 255, 0.45);
+      }
+      i:nth-child(3){
+        background: rgba(255, 255, 255, 0.65);
+      }
+      i:nth-child(4){
+        background: rgba(255, 255, 255, 0.8);
+      }
+    }
+  }
+  .ant-spin-text{
+    display: ruby !important;
+    margin-top: 10px;
+    margin-left: -65px;
+    text-shadow: none !important;
+    color: #ffffff;
+    opacity: 0.5;
+  }
+}

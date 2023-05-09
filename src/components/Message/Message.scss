@@ -1,0 +1,324 @@
+@import 'src/styles/variables';
+
+.message {
+  margin-bottom: 15px;
+  $message: &;
+
+  &__container {
+    display: flex;
+    position: relative;
+  }
+
+  &__content {
+    max-width: 440px;
+    display: flex;
+  }
+
+  &__attachments{
+    display: flex;
+    &-item{
+      margin-right: 5px;
+      img{
+        width: 45px;
+        height: 45px;
+        border-radius: 3px;
+      }
+    }
+  }
+
+  &__avatar {
+    .avatar {
+      border-radius: 50%;
+      width: 35px;
+      height: 35px;
+      margin-right: 13px;
+      margin-bottom: 18px;
+
+    }
+  }
+
+  &__bubble {
+    background: #ffffff;
+    box-shadow: 0px 0px 35px rgba(0, 0, 0, 0.1);
+    border-radius: 0 12px 12px 12px;
+    margin-top: 5px;
+    position: relative;
+    overflow: hidden;
+  }
+  &__text {
+    padding: 14px;
+    font-size: $fs_message;
+    line-height: 20px;
+    color: $font-blk;
+    margin-bottom: 0;
+  }
+
+  .cheked__icon {
+    position: absolute;
+    bottom: 3px;
+    left: -43px;
+    width: 25px;
+    height: 25px;
+    &-no{
+      left: -37px;
+    }
+  }
+
+  &--is-audio {
+    audio {
+      display: none;
+    }
+    #{$message}__audio{
+      width: 350px;
+      &-info{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        position: relative;
+      }
+      &-btn{
+        button{
+          cursor: pointer;
+          border: 0;
+          width: 40px;
+          height: 40px;
+          border-radius: 30px;
+          background: #12E2DC;
+        }
+    }
+      &.active,&-wave{
+        .boxContainer{
+          display: flex;
+          justify-content: space-between;
+          height: 40px;
+          --boxSize: 4px;
+          --gutter: 8px;
+          width: calc((var(--boxSize) + var(--gutter)) * 20);
+        }
+
+        .box{
+          transform: scaleY(.4);
+          height: 100%;
+          width: var(--boxSize);
+          background: #12E2DC;
+          animation-duration: 1.2s;
+          animation-timing-function: ease-in-out;
+          animation-iteration-count: infinite;
+          border-radius: 8px;
+        }
+
+        .box1{
+          animation-name: quiet;
+        }
+
+        .box2{
+          animation-name: normal;
+        }
+
+        .box3{
+          animation-name: quiet;
+        }
+
+        .box4{
+          animation-name: loud;
+        }
+
+        .box5{
+          animation-name: quiet;
+        }
+        img{
+          height: 40px;
+        }
+      }
+      &-duration {
+        color: #202020;
+        opacity: 0.5;
+        font-size: 14px;
+      }
+      &-progress{
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: #12E2DC;
+        height: 100%;
+        opacity: 0.2;
+        border-radius: 0 0 0 12px;
+        transition: width 0.3s linear;
+      }
+  }
+  }
+
+  &__date {
+    color: #fdfdfd;
+    font-size: 12px;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+  }
+  .message__is-typing {
+    will-change: transform;
+    width: auto;
+    padding: 14px;
+    display: table;
+    position: relative;
+    animation: 2s bulge infinite ease-out;
+    background: #12E2DC;
+    border-radius: 0 12px 12px 12px;
+    span {
+      height: 8px;
+      width: 8px;
+      float: left;
+      margin: 0 2px;
+      background-color: #ffffff;
+      border-radius: 50%;
+      opacity: 0.4;
+      @for $i from 1 through 3 {
+        &:nth-of-type(#{$i}) {
+          animation: 1s blink infinite ($i * .3333s);
+        }
+      }
+    }
+  }
+
+  @keyframes blink {
+    50% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes bulge {
+    50% {
+      transform: scale(1.05);
+    }
+  }
+  &--image{
+    .message__attachments{
+      .message__attachments-item{
+        img{
+      width: 150px;
+      height: 150px;
+        }
+      }
+    }
+  }
+
+}
+
+.message__isme {
+  display: flex;
+  flex-direction: row-reverse;
+  .message__container {
+    flex-direction: row-reverse;
+  }
+  .message__avatar {
+    img {
+      margin-left: 13px;
+    }
+  }
+  .message__bubble {
+    background: #00B0AB;
+    border-radius: 12px 0 12px 12px;
+    margin-right: 10px;
+  }
+  .message__text {
+    color: #ffffff;
+  }
+
+}
+@media only screen and (max-width: 860px) {
+
+  .message {
+    &__avatar {
+      .avatar {
+        width: 25px;
+        height: 25px;
+        margin-right: 6px;
+        margin-bottom: 8px;
+
+        &--symbol {
+          text-align: center;
+          font-size: 15px;
+          line-height: 27px;
+          color: #f7f7ff;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 573px){
+  .message{
+    &__text{
+      padding: 7px;
+      font-size: 11px;
+      line-height: 17px;
+    }
+    &__bubble{
+      max-width: 245px;
+    }
+    &__avatar {
+      .avatar {
+        width: 25px;
+        height: 25px;
+        margin-right: 6px;
+        margin-bottom: 8px;
+        &--symbol {
+          text-align: center;
+          font-size: 10px;
+          line-height: 28px;
+          color: #f7f7ff;
+        }
+      }
+    }
+  }
+
+}
+
+
+
+
+
+
+
+
+/*Animation of sound wave */
+
+@keyframes quiet {
+  25%{
+    transform: scaleY(.6);
+  }
+  50%{
+    transform: scaleY(.4);
+  }
+  75%{
+    transform: scaleY(.8);
+  }
+}
+
+@keyframes normal {
+  25%{
+    transform: scaleY(1);
+  }
+  50%{
+    transform: scaleY(.4);
+  }
+  75%{
+    transform: scaleY(.6);
+  }
+}
+@keyframes loud {
+  25%{
+    transform: scaleY(1);
+  }
+  50%{
+    transform: scaleY(.4);
+  }
+  75%{
+    transform: scaleY(1.2);
+  }
+}
+
+
